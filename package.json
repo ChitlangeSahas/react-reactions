@@ -1,6 +1,6 @@
 {
   "name": "@chitlangesahas/react-reactions",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "private": false,
   "description": "😲 Create custom reaction pickers and counters or use your favorites!",
   "keywords": [
@@ -39,7 +39,7 @@
     "build": "tsdx build",
     "build-storybook": "build-storybook",
     "fix": "tsdx lint src test --fix",
-    "_postinstall": "husky install",
+    "postinstall": "husky install",
     "lint": "tsdx lint src test",
     "prepare": "tsdx build",
     "prepublishOnly": "pinst --disable",
