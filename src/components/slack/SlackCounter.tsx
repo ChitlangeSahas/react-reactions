@@ -8,7 +8,7 @@ export interface SlackCounterProps {
   user?: string;
   onSelect?: (emoji: string) => void;
   onAdd?: () => void;
-  show?: boolean
+  showAddIcon?: boolean
 }
 
 export const SlackCounter: React.FC<SlackCounterProps> = ({
@@ -16,19 +16,20 @@ export const SlackCounter: React.FC<SlackCounterProps> = ({
   user = defaultProps.user,
   onSelect = defaultProps.onSelect,
   onAdd = defaultProps.onAdd,
-  show = false
+  showAddIcon = false
 }) => {
   const groups = groupBy(counters, 'emoji');
 
   return (
     <>
       <SlackCSS />
-      <Hover style={counterStyle} overrideIsHoveredValue={show}>
+      <Hover style={counterStyle} overrideIsHoveredValue={showAddIcon}>
         {Object.keys(groups).map((emoji: string) => {
           const names = groups[emoji].map(({ by }: CounterObject) => {
             return by;
           });
           return (
+             //(sahas): The slack counter group is hidden even with the override of showAddIcon because it uses another hover context
             <div style={groupStyle} key={emoji}>
               <SlackCounterGroup
                 emoji={emoji}
@@ -66,7 +67,7 @@ export const defaultProps: Required<SlackCounterProps> = {
   onAdd: () => {
     console.log('add');
   },
-  show: false
+  showAddIcon: false
 };
 
 const counterStyle = {
