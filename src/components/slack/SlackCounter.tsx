@@ -8,6 +8,7 @@ export interface SlackCounterProps {
   user?: string;
   onSelect?: (emoji: string) => void;
   onAdd?: () => void;
+  show?: boolean
 }
 
 export const SlackCounter: React.FC<SlackCounterProps> = ({
@@ -15,13 +16,14 @@ export const SlackCounter: React.FC<SlackCounterProps> = ({
   user = defaultProps.user,
   onSelect = defaultProps.onSelect,
   onAdd = defaultProps.onAdd,
+  show = false
 }) => {
   const groups = groupBy(counters, 'emoji');
 
   return (
     <>
       <SlackCSS />
-      <Hover style={counterStyle}>
+      <Hover style={counterStyle} overrideIsHoveredValue={show}>
         {Object.keys(groups).map((emoji: string) => {
           const names = groups[emoji].map(({ by }: CounterObject) => {
             return by;
@@ -64,6 +66,7 @@ export const defaultProps: Required<SlackCounterProps> = {
   onAdd: () => {
     console.log('add');
   },
+  show: false
 };
 
 const counterStyle = {
@@ -72,7 +75,6 @@ const counterStyle = {
 const addStyle = {
   cursor: 'pointer',
   fontFamily: 'Slack',
-  paddingLeft: '8px',
   opacity: '0',
   transition: 'opacity 0.1s ease-in-out',
 };

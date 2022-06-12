@@ -68,7 +68,7 @@
     "pinst": "3.0.0",
     "postcss": "8.4.12",
     "postcss-import": "14.1.0",
-    "react": "18.0.0",
+    "react":  "link:../easierRetro/node_modules/react",
     "react-dom": "18.0.0",
     "rollup-plugin-postcss": "^4.0.2",
     "tsdx": "0.14.1",
