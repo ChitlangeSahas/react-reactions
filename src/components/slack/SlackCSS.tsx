@@ -7,10 +7,10 @@ export const SlackCSS = () => {
         __html: `
         @font-face {
           font-family: Slack;
-          src: url(fonts/slack-icons-Regular.eot);
-          src: url(fonts/slack-icons-Regular.eot?#iefix) format('embedded-opentype'),
-               url(fonts/slack-icons-Regular.woff) format('woff'),
-               url(fonts/slack-icons-Regular.ttf) format('truetype')
+          src: url(https://github.com/ChitlangeSahas/react-reactions/blob/main/fonts/slack-icons-Regular.eot?raw=true);
+          src: url(https://github.com/ChitlangeSahas/react-reactions/blob/main/fonts/slack-icons-Regular.eot?raw=true?#iefix) format('embedded-opentype'),
+               url(https://github.com/ChitlangeSahas/react-reactions/blob/main/fonts/slack-icons-Regular.woff?raw=true) format('woff'),
+               url(https://github.com/ChitlangeSahas/react-reactions/blob/main/fonts/slack-icons-Regular.ttf?raw=true) format('truetype')
         }
         .frame::-webkit-scrollbar {
             -webkit-appearance: none;
