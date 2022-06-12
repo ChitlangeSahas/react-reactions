@@ -3,7 +3,6 @@ import { HoverContext } from './useHover';
 
 interface HoverProps extends React.HTMLAttributes<HTMLDivElement> {
   hoverStyle?: React.CSSProperties;
-  overrideIsHoveredValue?: boolean
 }
 
 // TODO: turn this into a HOC?
@@ -12,16 +11,15 @@ export const Hover: React.FC<HoverProps> = ({
   hoverStyle = {},
   children,
   style,
-  overrideIsHoveredValue= false,
   ...rest
 }) => {
-  const [isHovered, setHovered] = React.useState(overrideIsHoveredValue);
+  const [isHovered, setHovered] = React.useState(false);
 
   return (
     <HoverContext.Provider value={isHovered}>
       <div
-        onMouseEnter={() => {overrideIsHoveredValue ? null : setHovered(true)}}
-        onMouseLeave={() => {overrideIsHoveredValue ? null : setHovered(false)}}
+        onMouseEnter={() => {setHovered(true)}}
+        onMouseLeave={() => {setHovered(false)}}
         {...rest}
         style={{ ...style, ...(isHovered ? hoverStyle : {}) }}
       >

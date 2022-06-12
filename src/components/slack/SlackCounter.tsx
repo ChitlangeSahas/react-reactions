@@ -23,7 +23,7 @@ export const SlackCounter: React.FC<SlackCounterProps> = ({
   return (
     <>
       <SlackCSS />
-      <Hover style={counterStyle} overrideIsHoveredValue={showAddIcon}>
+      <Hover style={counterStyle}>
         {Object.keys(groups).map((emoji: string) => {
           const names = groups[emoji].map(({ by }: CounterObject) => {
             return by;
@@ -41,9 +41,11 @@ export const SlackCounter: React.FC<SlackCounterProps> = ({
             </div>
           );
         })}
-        <HoverStyle hoverStyle={addStyleHover} style={addStyle} onClick={onAdd}>
-          <SlackCounterGroup emoji={''} />
-        </HoverStyle>
+        {showAddIcon ? <div style={{...addStyle, opacity: 1}} onClick={onAdd}><SlackCounterGroup emoji={''}/></div>
+            : <HoverStyle hoverStyle={addStyleHover} style={addStyle} onClick={onAdd}>
+              <SlackCounterGroup emoji={''}/>
+            </HoverStyle>
+        }
       </Hover>
     </>
   );
