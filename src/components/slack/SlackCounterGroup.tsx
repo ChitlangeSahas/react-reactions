@@ -62,10 +62,10 @@ const emojiStyle = {
   paddingRight: '3px',
 };
 const tooltipStyle: React.CSSProperties = {
-  maxWidth: '250px',
+  maxWidth: '300px',
+  width: 'max-content',
   wordBreak: 'break-word',
   wordWrap: 'normal',
-  whiteSpace: 'nowrap',
   font: `normal normal 11px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI",
           Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
   color: '#fff',
@@ -74,8 +74,7 @@ const tooltipStyle: React.CSSProperties = {
   padding: '5px 8px',
   position: 'absolute',
   bottom: '100%',
-  left: '50%',
-  transform: 'translateX(-50%)',
+  transform: 'translateX(-8px)',
   marginBottom: '4px',
   opacity: '0',
   transition: 'opacity 0.1s ease-in-out',
